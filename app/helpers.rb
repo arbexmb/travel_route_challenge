@@ -111,8 +111,12 @@ def csv_append user_input
   price = user_input['price'].to_s
   array.append(price)
   begin
-    CSV.open('./app/input-routes.csv', 'ab') do |csv|
-      csv << array
+    if Rails.env != 'test'
+      CSV.open('./app/input-routes.csv', 'ab') do |csv|
+        csv << array
+      end
+    else
+      return true
     end
   rescue
     return false
