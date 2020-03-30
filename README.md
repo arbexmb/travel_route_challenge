@@ -1,20 +1,20 @@
 # Travel Route Challenge
 
-This repository contains an application design for the the Travel Route Challenge.
+This repository contains an application design for the Travel Route Challenge.
 
 ## Introduction
 
-The application was developed using Ruby as the programming language, and Rails as the main development framework. As requested, a console and a REST API interfaces were created, and their functionalities include searching for the cheapest travel route, given a .csv file, and creating a new route and append it to this file.
-
-Besides that, and also to make the test easier to correct, I have set up a Docker container to mount the application, in order to make the building process easier.
+The application was developed using Ruby as the programming language, and Rails as the main development framework. As requested, a console and a REST API interfaces were created, and their functionalities include searching for the cheapest travel route, given a .csv file, and creating a new route and append it to the file.
 
 ## Setup
 
 There are two ways to setup the application.
 
+*I have add a Dockerfile into the project to give it another way to set it up, if necessary.*
+
 ##### First option:
 
-The first and simplest one only requires that you have `ruby` installed in your local OS.
+The first and simplest way to setup the application only requires that you have `ruby` installed in your local OS.
 
 With that said, you can simply clone this repository, run `bundle install` to install the dependencies, and `rails s` to start the server on port 3000.
 
@@ -33,7 +33,7 @@ The above commands will build the image, and run it on port 3000 detached from t
 
 ## Running the test suite
 
-As requested, I have developed a few tests, to ensure the application runs smoothly. If you chose the first option above to setup the application, `rspec` is all you need to run the test suite.
+As requested, I have developed a few tests, to ensure the application runs smoothly. If you chose to setup the application without containerization, `rspec` is all you need to run the test suite.
 
 However, if you mounted the application using docker, run the following:
 
@@ -45,13 +45,13 @@ Everything should pass!
 
 ## Running the console interface
 
-As well as the test suite, there are two options to run the console interface. Without containerization, run:
+As well as the test suite, there are two options to run the console interface. Without containerization:
 
 ```shell
 ruby app/console.rb
 ```
 
-On the other hand, with containerization, run:
+And with containerization:
 
 ```
 # docker exec -it app_image ruby app/console.rb
