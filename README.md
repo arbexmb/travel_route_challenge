@@ -25,8 +25,8 @@ Since I have set a Docker container in the application, it is possible to build 
 After cloning this repository, run the following commands:
 
 ```shell
-sudo docker build -t app_image .
-sudo docker run --name app_image -d -p 3000:3000 app_image
+# docker build -t app_image .
+# docker run --name app_image -d -p 3000:3000 app_image
 ```
 
 The above commands will build the image, and run it on port 3000 detached from the active terminal process.
@@ -53,7 +53,7 @@ ruby app/console.rb
 
 On the other hand, with containerization, run:
 
-```shell
+```
 # docker exec -it app_image ruby app/console.rb
 ```
 
