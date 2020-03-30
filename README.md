@@ -24,7 +24,7 @@ Since I have set a Docker container in the application, it is possible to build 
 
 After cloning this repository, run the following commands:
 
-```shell
+```
 # docker build -t app_image .
 # docker run --name app_image -d -p 3000:3000 app_image
 ```
