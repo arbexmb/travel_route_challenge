@@ -8,6 +8,10 @@ class RoutesController < ApplicationController
       return render json: { error: 'Incorrect format.' }, status: 400
     end
 
+    if (already_exists body['route'])
+      return render json: { error: 'Travel route already exists.' }, status: 400
+    end
+
     if (!csv_append body)
       return render json: { error: 'Something went wrong.' }, status: 400
     end

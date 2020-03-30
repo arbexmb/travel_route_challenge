@@ -92,6 +92,15 @@ def price_validation price
   return false
 end
 
+def already_exists route
+  route_array = split_user_input route
+  check_dep_arr = CSV.foreach('./app/input-routes.csv').detect { |row|
+    row[0] == route_array[0] &&
+    row[1] == route_array[1]
+  }
+  return check_dep_arr != nil ? true : false
+end
+
 def api_validation json
   is_hash = json.is_a?(Hash)
   has_route_key = json.key?('route')
@@ -99,7 +108,11 @@ def api_validation json
   has_price_key = json.key?('price')
   price_validation = price_validation json['price']
 
-  if (is_hash && has_route_key && route_validation && has_price_key && price_validation)
+  if (is_hash &&
+      has_route_key &&
+      route_validation &&
+      has_price_key &&
+      price_validation)
     return true
   end
 

@@ -71,7 +71,7 @@ It is possible to create a new travel route in this endpoint, by passing the arg
 
 ```json
 {
-  "route": "GRU-ORL",
+  "route": "BRC-ORL",
   "price": 40
 }
 ```
